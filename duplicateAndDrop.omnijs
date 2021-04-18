@@ -1,31 +1,32 @@
+/* global PlugIn duplicateTasks */
 /*{
-	"type": "action",
-	"targets": ["omnifocus"],
-	"author": "Kaitlin Salzke",
-    "identifier": "com.KaitlinSalzke.DuplicateAndDrop",
-	"version": "1.0",
-	"description": "Duplicates a repeating task so that it can be modified without affecting future instances",
-	"label": "Duplicate and Drop",
-	"shortLabel": "Duplicate and Drop"
+"type": "action",
+"targets": ["omnifocus"],
+"author": "Kaitlin Salzke",
+"identifier": "com.KaitlinSalzke.DuplicateAndDrop",
+"version": "1.0",
+"description": "Duplicates a repeating task so that it can be modified without affecting future instances",
+"label": "Duplicate and Drop",
+  "shortLabel": "Duplicate and Drop"
 }*/
 (() => {
-  action = new PlugIn.Action((selection, sender) => {
-    let oTask = selection.tasks[0];
+  const action = new PlugIn.Action((selection, sender) => {
+    const oTask = selection.tasks[0]
 
     // make a non-repeating copy of the task
-    nTask = duplicateTasks([oTask], oTask.before)[0];
-    nTask.repetitionRule = null;
+    const nTask = duplicateTasks([oTask], oTask.before)[0]
+    nTask.repetitionRule = null
 
     // skip the original task
-    oTask.drop(false);
-  });
+    oTask.drop(false)
+  })
 
   action.validate = (selection, sender) => {
     // available if a single repeating task is selected
     return (
       selection.tasks.length === 1 && selection.tasks[0].repetitionRule !== null
-    );
-  };
+    )
+  }
 
-  return action;
-})();
+  return action
+})()
