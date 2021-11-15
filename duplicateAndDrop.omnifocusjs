@@ -4,7 +4,7 @@
 "targets": ["omnifocus"],
 "author": "Kaitlin Salzke",
 "identifier": "com.KaitlinSalzke.DuplicateAndDrop",
-"version": "1.0",
+"version": "1.0.1",
 "description": "Duplicates a repeating task so that it can be modified without affecting future instances",
 "label": "Duplicate and Drop",
   "shortLabel": "Duplicate and Drop"
